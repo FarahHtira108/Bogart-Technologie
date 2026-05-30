@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bogart Technologie</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Bogart Technologie</h1>
+
+<nav>
+<a href="#home">Accueil</a>
+<a href="#phones">Téléphones</a>
+<a href="#accessoires">Accessoires</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div id="cart-icon">
+🛒 <span id="cart-count">0</span>
+</div>
+</header>
+
+<section id="home" class="hero">
+<h2>Votre univers Smartphone & Accessoires</h2>
+<p>Vente en ligne et en boutique.</p>
+<a class="btn" href="https://wa.me/21622566377">Commander sur WhatsApp</a>
+</section>
+
+<section id="phones">
+<h2>Téléphones</h2>
+
+<div class="grid">
+
+<div class="card">
+    <img src="images/iphone.jpg">
+    <h3>iPhone</h3>
+    <p>2500 TND</p>
+    <button onclick="addToCart('iPhone', 2500, 'images/iphone.jpg', this)">
+        Ajouter au panier
+    </button>
+</div>
+
+<div class="card">
+    <img src="images/samsung.jpg">
+    <h3>Samsung</h3>
+    <p>1800 TND</p>
+    <button onclick="addToCart('Samsung', 1800, 'images/samsung.jpg', this)">
+        Ajouter au panier
+    </button>
+</div>
+
+<div class="card">
+    <img src="images/xiaomi.jpg">
+    <h3>Xiaomi</h3>
+    <p>1200 TND</p>
+    <button onclick="addToCart('Xiaomi', 1200, 'images/xiaomi.jpg', this)">
+        Ajouter au panier
+    </button>
+</div>
+
+<div class="card">
+    <img src="images/oppo.jpg">
+    <h3>Oppo</h3>
+    <p>1000 TND</p>
+    <button onclick="addToCart('Oppo', 1000, 'images/oppo.jpg', this)">
+        Ajouter au panier
+    </button>
+</div>
+
+</div>
+</section>
+
+<section id="accessoires">
+<h2>Accessoires</h2>
+
+<div class="grid">
+<div class="card">
+    <h3>Chargeurs</h3>
+    <p>50 TND</p>
+    <button onclick="addToCart('Chargeur', 50, '', this)">Ajouter</button>
+</div>
+
+<div class="card">
+    <h3>Écouteurs</h3>
+    <p>80 TND</p>
+    <button onclick="addToCart('Écouteurs', 80, '', this)">Ajouter</button>
+</div>
+
+<div class="card">
+    <h3>Coques</h3>
+    <p>30 TND</p>
+    <button onclick="addToCart('Coque', 30, '', this)">Ajouter</button>
+</div>
+
+<div class="card">
+    <h3>Smart Watch</h3>
+    <p>200 TND</p>
+    <button onclick="addToCart('Smart Watch', 200, '', this)">Ajouter</button>
+</div>
+</div>
+</section>
+
+<section id="cart">
+<h2>🛒 Mon Panier</h2>
+<ul id="cart-items"></ul>
+<p id="total">Total: 0 TND</p>
+<button onclick="clearCart()">Vider le panier</button>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>WhatsApp : 22 566 377</p>
+<p>Bogart Technologie - Manzel Temime</p>
+</section>
+
+<footer>© 2026 Bogart Technologie</footer>
+
+<!-- JS UNIQUEMENT ICI -->
+<script src="script.js"></script>
+
+</body>
+</html>
