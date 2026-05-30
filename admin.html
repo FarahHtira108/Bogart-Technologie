@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>📊 Dashboard Ventes</h1>
+
+<h2>Total ventes</h2>
+<h1 id="total">0 TND</h1>
+
+<h2>Nombre de produits vendus</h2>
+<h1 id="count">0</h1>
+
+<script>
+let sales = JSON.parse(localStorage.getItem("sales")) || [];
+
+document.getElementById("total").innerText =
+sales.reduce((a,b)=>a+b,0) + " TND";
+
+document.getElementById("count").innerText = sales.length;
+</script>
+
+</body>
+</html>

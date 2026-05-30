@@ -1,69 +1,72 @@
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function addToCart(name, price, imgSrc, button) {
-    cart.push({ name, price });
-    updateCart();
-    animateAddToCart(imgSrc, button);
-}
+let products = [
+    {name:"iPhone 14", price:2500, stock:5, img:"images/iphone.jpg"},
+    {name:"iPhone 13", price:2000, stock:3, img:"images/iphone.jpg"},
+    {name:"Samsung S23", price:1800, stock:4, img:"images/samsung.jpg"}
+];
 
-function updateCart() {
-    let list = document.getElementById("cart-items");
-    let totalText = document.getElementById("total");
-    let count = document.getElementById("cart-count");
+// AFFICHAGE PRODUITS (IPHONE PAGE)
+if(document.getElementById("products")) {
+    let container = document.getElementById("products");
 
-    list.innerHTML = "";
-
-    let total = 0;
-
-    cart.forEach((item, index) => {
-        total += item.price;
-
-        let li = document.createElement("li");
-        li.innerHTML = `
-            ${item.name} - ${item.price} TND
-            <button onclick="removeItem(${index})">❌</button>
-        `;
-
-        list.appendChild(li);
+    products.forEach((p, index) => {
+        container.innerHTML += `
+        <div class="card">
+            <img src="${p.img}">
+            <h3>${p.name}</h3>
+            <p>${p.price} TND</p>
+            <p class="stock">Stock: ${p.stock}</p>
+            <button onclick="addToCart(${index}, this)">Ajouter</button>
+        </div>`;
     });
-
-    totalText.textContent = "Total: " + total + " TND";
-    count.textContent = cart.length;
 }
 
-function removeItem(index) {
-    cart.splice(index, 1);
+// AJOUT PANIER
+function addToCart(index, btn) {
+    let p = products[index];
+
+    if(p.stock <= 0){
+        alert("Rupture de stock !");
+        return;
+    }
+
+    p.stock--;
+
+    cart.push(p);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
     updateCart();
+    animate(btn);
 }
 
-function clearCart() {
-    cart = [];
-    updateCart();
+// UPDATE PANIER
+function updateCart() {
+    document.getElementById("cart-count").innerText = cart.length;
 }
 
-function animateAddToCart(imgSrc, button) {
-    if (!imgSrc) return;
-
+// ANIMATION
+function animate(btn){
     let img = document.createElement("img");
-    img.src = imgSrc;
+    img.src = "images/iphone.jpg";
     img.className = "flying-img";
     document.body.appendChild(img);
 
-    let rect = button.getBoundingClientRect();
-    let cartRect = document.getElementById("cart-icon").getBoundingClientRect();
+    let rect = btn.getBoundingClientRect();
+    let cart = document.getElementById("cart-icon").getBoundingClientRect();
 
     img.style.left = rect.left + "px";
     img.style.top = rect.top + "px";
 
-    setTimeout(() => {
-        img.style.left = cartRect.left + "px";
-        img.style.top = cartRect.top + "px";
+    setTimeout(()=>{
+        img.style.left = cart.left + "px";
+        img.style.top = cart.top + "px";
         img.style.width = "20px";
         img.style.height = "20px";
-        img.style.opacity = "0.5";
     }, 10);
 
-    setTimeout(() => {
-        img.remove();
-    }, 800);
+    setTimeout(()=>img.remove(), 800);
 }
+
+// INIT
+updateCart();
