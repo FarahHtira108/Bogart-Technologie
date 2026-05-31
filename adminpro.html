@@ -1,0 +1,16 @@
+<h1>Dashboard Admin</h1>
+
+<h2>Total ventes</h2>
+<h1 id="total"></h1>
+
+<h2>Commandes</h2>
+<h1 id="count"></h1>
+
+<script>
+let sales = JSON.parse(localStorage.getItem("sales")) || [];
+
+document.getElementById("total").innerText =
+sales.reduce((a,b)=>a+b,0) + " TND";
+
+document.getElementById("count").innerText = sales.length;
+</script>

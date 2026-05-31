@@ -1,0 +1,36 @@
+<h1>Mon Panier</h1>
+<div id="cart"></div>
+<h2 id="total"></h2>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function renderCart() {
+    let container = document.getElementById("cart");
+    container.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, i) => {
+        total += item.price * item.qty;
+
+        container.innerHTML += `
+        <div>
+            <h3>${item.name}</h3>
+            <p>${item.qty} x ${item.price} TND</p>
+            <button onclick="remove(${i})">Supprimer</button>
+        </div>
+        `;
+    });
+
+    document.getElementById("total").innerText = "Total: " + total + " TND";
+}
+
+function remove(i) {
+    cart.splice(i, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+}
+
+renderCart();
+</script>

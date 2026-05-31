@@ -1,0 +1,26 @@
+<h1>Commande</h1>
+
+<form onsubmit="order(event)">
+    <input placeholder="Nom" required>
+    <input placeholder="Téléphone" required>
+    <button>Confirmer</button>
+</form>
+
+<script>
+function order(e) {
+    e.preventDefault();
+
+    let sales = JSON.parse(localStorage.getItem("sales")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let total = cart.reduce((a, b) => a + (b.price * b.qty), 0);
+
+    sales.push(total);
+
+    localStorage.setItem("sales", JSON.stringify(sales));
+    localStorage.removeItem("cart");
+
+    alert("Commande validée !");
+    window.location.href = "index.html";
+}
+</script>
