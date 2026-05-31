@@ -2,43 +2,32 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Bogart Store</title>
+<title>Bogart Tech</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<h1>Bogart Technologie</h1>
+    <h1>⚡ Bogart Tech</h1>
 
-<nav>
-<a href="index.html">Accueil</a>
-<a href="iphone.html">iPhone</a>
-<a href="admin.html">Admin</a>
-</nav>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#" onclick="filter('iphone')">iPhone</a>
+        <a href="#" onclick="filter('samsung')">Samsung</a>
+        <a href="#" onclick="filter('all')">All</a>
+        <a href="admin.html">Admin</a>
+    </nav>
 
-<div id="cart-icon">🛒 <span id="cart-count">0</span></div>
+    <div id="cart-icon">🛒 <span id="cart-count">0</span></div>
 </header>
 
 <section class="hero">
-<h1>Bienvenue dans Bogart Store</h1>
-<p>Meilleure boutique smartphone en Tunisie</p>
+    <h1>Premium Tech Store</h1>
+    <p>iPhone • Samsung • Smart Devices</p>
 </section>
 
-<section class="grid">
-
-<div class="card">
-<h3>iPhone</h3>
-<p>Produits Apple</p>
-<a href="iphone.html"><button>Voir</button></a>
-</div>
-
-<div class="card">
-<h3>Samsung</h3>
-<p>Produits Android</p>
-</div>
-
-</section>
+<section class="grid" id="products"></section>
 
 <script src="script.js"></script>
 </body>
