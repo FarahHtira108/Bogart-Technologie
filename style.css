@@ -104,3 +104,22 @@ button:hover {
     pointer-events: none;
     z-index: 9999;
 }
+.filter {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px;
+}
+
+.filter button {
+    padding: 10px 20px;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.filter button:hover {
+    background: red;
+}
