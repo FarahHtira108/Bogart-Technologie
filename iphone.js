@@ -1,10 +1,10 @@
 const iphones = [
-    { name: "iPhone 15 Pro", price: "1200€", img: "image/iphone15.jpg" },
-    { name: "iPhone 15", price: "1000€", img: "image/iphone15.jpg" },
-    { name: "iPhone 14 Pro", price: "950€", img: "image/iphone14.jpg" },
-    { name: "iPhone 14", price: "800€", img: "image/iphone14.jpg" },
-    { name: "iPhone 13", price: "650€", img: "image/iphone13.jpg" },
-    { name: "iPhone 12", price: "500€", img: "image/iphone12.jpg" }
+    { name: "iPhone 15 Pro", price: "1200dt", img: "image/iphone15.jpg" },
+    { name: "iPhone 15", price: "1000dt", img: "image/iphone15.jpg" },
+    { name: "iPhone 14 Pro", price: "950dt", img: "image/iphone14.jpg" },
+    { name: "iPhone 14", price: "800dt", img: "image/iphone14.jpg" },
+    { name: "iPhone 13", price: "650dt", img: "image/iphone13.jpg" },
+    { name: "iPhone 12", price: "500dt", img: "image/iphone12.jpg" }
 ];
 
 const container = document.getElementById("iphone-list");
