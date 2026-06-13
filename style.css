@@ -67,6 +67,14 @@ color:white;
 cursor:pointer;
 margin-top:5px;
 }
+input{
+  display:block;
+  width:80%;
+  margin:10px auto;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+}
 
 .filter{
 text-align:center;
