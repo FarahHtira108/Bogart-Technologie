@@ -63,6 +63,24 @@ function filter(type) {
     currentFilter = type;
     renderProducts();
 }
+function searchProduct() {
+    const value =
+    document.getElementById("search")
+    .value.toLowerCase();
+
+    document.querySelectorAll(".card")
+    .forEach(card => {
+
+        const name =
+        card.querySelector("h3")
+        .innerText.toLowerCase();
+
+        card.style.display =
+        name.includes(value)
+        ? "block"
+        : "none";
+    });
+}
 
 renderProducts();
 updateCart();
