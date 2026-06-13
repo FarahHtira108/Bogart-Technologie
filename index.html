@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Bogart Technologie</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Bogart Store</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="loader" id="loader">Loading...</div>
+
 <header>
-  <h1>🍏 Bogart Technologie</h1>
+  <h1>🍏 Bogart Store</h1>
+
+  <input id="search" placeholder="Search..." onkeyup="searchProducts()">
+
   <nav>
     <a href="index.html">Home</a>
-    <a href="iphone.html">iPhone</a>
-    <a href="samsung.html">Samsung</a>
-    <a href="cart.html">Panier 🛒 (<span id="cart-count">0</span>)</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart 🛒 (<span id="cart-count">0</span>)</a>
+    <a href="#" onclick="openWishlist()">❤️</a>
   </nav>
 </header>
 
 <section class="hero">
-  <h2>Bienvenue dans notre boutique</h2>
-  <p>iPhone & Samsung au meilleur prix</p>
+  <h2>iPhone & Samsung Store</h2>
+  <a href="shop.html" class="btn">Shop Now</a>
 </section>
 
 <script src="script.js"></script>

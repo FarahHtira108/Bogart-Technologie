@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Shop</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cart.html">Cart 🛒 (<span id="cart-count">0</span>)</a>
+  </nav>
+</header>
+
+<div class="filter">
+  <button onclick="filterProducts('all')">All</button>
+  <button onclick="filterProducts('iphone')">iPhone</button>
+  <button onclick="filterProducts('samsung')">Samsung</button>
+</div>
+
+<div id="products" class="products"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
