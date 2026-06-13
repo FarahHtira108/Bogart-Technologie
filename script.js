@@ -1,16 +1,32 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-const products = [
-  {name:"iPhone 14", price:2500, type:"iphone", img:"images/iphone14.jpg"},
-  {name:"iPhone 13", price:2000, type:"iphone", img:"images/iphone13.jpg"},
-  {name:"iPhone 15", price:3200, type:"iphone", img:"images/iphone15.jpg"},
-
-  {name:"Samsung S23", price:1800, type:"samsung", img:"images/s23.jpg"},
-  {name:"Samsung S22", price:1500, type:"samsung", img:"images/s22.jpg"},
-  {name:"Samsung A54", price:900, type:"samsung", img:"images/a54.jpg"},
+let products = [
+  {
+    id: 1,
+    name: "iPhone 14",
+    brand: "iphone",
+    price: 2500,
+    stock: 5,
+    img: "images/iphone14.jpg"
+  },
+  {
+    id: 2,
+    name: "iPhone 13",
+    brand: "iphone",
+    price: 2000,
+    stock: 3,
+    img: "images/iphone13.jpg"
+  },
+  {
+    id: 3,
+    name: "Samsung S23",
+    brand: "samsung",
+    price: 1800,
+    stock: 4,
+    img: "images/samsung.jpg"
+  }
 ];
-
 
 // 🛒 ADD TO CART (WITH QUANTITY)
 function addToCart(name, price){
@@ -62,36 +78,24 @@ function updateUI(){
 
 
 // 📦 DISPLAY PRODUCTS
-function displayProducts(list){
+function displayProducts(list) {
   let container = document.getElementById("products");
-  if(!container) return;
 
   container.innerHTML = "";
 
-  list.forEach((p, index)=>{
-
-    let liked = wishlist.includes(p.name) ? "❤️" : "🤍";
-
+  list.forEach(p => {
     container.innerHTML += `
-      <div class="card" style="animation:fadeIn 0.3s ease ${index*0.05}s both;">
-
-        <img src="${p.img}" class="product-img">
-
+      <div class="card">
+        <img src="${p.img}" alt="${p.name}" class="product-img">
         <h3>${p.name}</h3>
         <p>${p.price} TND</p>
-
-        <button onclick="addToCart('${p.name}',${p.price})">
-          🛒 Add
-        </button>
-
-        <button onclick="addToWishlist('${p.name}')">
-          ${liked} Wishlist
-        </button>
-
+        <button onclick="addToCart(${p.id})">Ajouter au panier</button>
       </div>
     `;
   });
 }
+
+displayProducts(products);
 
 
 // 🔍 FILTER
