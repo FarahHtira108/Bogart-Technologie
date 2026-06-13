@@ -10,14 +10,14 @@ const products = [
   {name:"Samsung A54", price:900, type:"samsung", img:"images/a54.jpg"},
 ];
 
-// CART
-function addToCart(name,price){
-  cart.push({name,price});
-  localStorage.setItem("cart",JSON.stringify(cart));
+// ADD TO CART
+function addToCart(name, price){
+  cart.push({name, price});
+  localStorage.setItem("cart", JSON.stringify(cart));
   updateCart();
 }
 
-// UPDATE COUNTER
+// UPDATE CART COUNT
 function updateCart(){
   let c = document.getElementById("cart-count");
   if(c) c.innerText = cart.length;
@@ -28,7 +28,7 @@ function displayProducts(list){
   let container = document.getElementById("products");
   if(!container) return;
 
-  container.innerHTML="";
+  container.innerHTML = "";
 
   list.forEach(p=>{
     container.innerHTML += `
@@ -44,8 +44,8 @@ function displayProducts(list){
 
 // FILTER
 function filterProducts(type){
-  if(type=="all") displayProducts(products);
-  else displayProducts(products.filter(p=>p.type==type));
+  if(type === "all") displayProducts(products);
+  else displayProducts(products.filter(p => p.type === type));
 }
 
 // CART PAGE
@@ -53,8 +53,8 @@ function showCart(){
   let container = document.getElementById("cart");
   if(!container) return;
 
-  let total=0;
-  container.innerHTML="";
+  let total = 0;
+  container.innerHTML = "";
 
   cart.forEach(item=>{
     total += item.price;
@@ -72,8 +72,11 @@ function showCart(){
 
 // SEARCH
 function searchProducts(){
-  let value=document.getElementById("search").value.toLowerCase();
-  let filtered=products.filter(p=>p.name.toLowerCase().includes(value));
+  let value = document.getElementById("search").value.toLowerCase();
+  let filtered = products.filter(p =>
+    p.name.toLowerCase().includes(value)
+  );
+
   displayProducts(filtered);
 }
 
@@ -83,5 +86,6 @@ displayProducts(products);
 
 // LOADER
 window.onload = ()=>{
-  document.getElementById("loader").style.display="none";
+  let l = document.getElementById("loader");
+  if(l) l.style.display = "none";
 };
