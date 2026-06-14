@@ -9,7 +9,7 @@ name:"iPhone 14",
 type:"iphone",
 price:2500,
 stock:5,
-img:"images/iphone14.jpg"
+img:"images/iphone14.jpg.webp.webp"
 },
 
 {
