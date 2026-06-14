@@ -1,31 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Tech Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bogart Store</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div id="loader">Loading...</div>
+<div id="loader">Bogart Store...</div>
 
 <header>
-  <h1> Bogart_Technologie</h1>
+    <h1>🛍 Bogart Store</h1>
 
-  <input id="search" placeholder="Search..." onkeyup="searchProducts()">
+    <div class="header-right">
+        <input type="text" id="search" placeholder="Rechercher..." onkeyup="searchProducts()">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="cart.html">Cart 🛒 (<span id="cart-count">0</span>)</a>
-  </nav>
+        <div class="counters">
+            🛒 <span id="cart-count">0</span>
+            ❤️ <span id="wish-count">0</span>
+        </div>
+    </div>
 </header>
 
-<section class="hero">
-  <h2>iPhone & Samsung Store</h2>
-  <a href="shop.html" class="btn">Shop Now</a>
-</section>
+<div class="filters">
+    <button onclick="filterProducts('all')">Tous</button>
+    <button onclick="filterProducts('iphone')">iPhone</button>
+    <button onclick="filterProducts('samsung')">Samsung</button>
+    <button onclick="filterProducts('macbook')">MacBook</button>
+    <button onclick="filterProducts('accessoire')">Accessoires</button>
+</div>
+
+<h2 class="section-title">Nos Produits</h2>
+
+<div id="products"></div>
+
+<h2 class="section-title">Mon Panier</h2>
+<div id="cart"></div>
+
+<footer>
+    <p>© 2026 Bogart Store - Tous droits réservés</p>
+</footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
